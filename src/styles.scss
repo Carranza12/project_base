@@ -3,7 +3,141 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+    --color-primary: #11101d;
+    --color-secondary: #1d1b31;
+    --color-tertiary: #4f4e60;
+    --color-copy-button: rgb(101, 99, 138);
+    --color-white: #fff;
+    --color-background-white: #fff;
+    --font-family: "Montserrat", sans-serif;
+    --color-error-message: #c22b35;
+    --color-input: #616173;
+    --color-label: #23282c;
+    --color-input-focus: #23282c;
+  }
+
 html, body { height: 100%; }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+ol,
+li,
+table,
+th,
+td {
+  font-family: var(--font-family);
+}
+
+body {
+  font-size: 16px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--color-primary);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+} 
+
+.main-push {
+  transition: 0.5s padding;
+  padding-left: 260px;
+}
+
+.main-retract {
+  transition: 0.5s padding;
+  padding-left: 0;
+  padding-left: 88px;
+}
+
+#spinner,
+#notification {
+  z-index: 100000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.spinner {
+  padding: 20px 20px;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.spinner h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.spinner-show {
+  display: flex !important;
+}
+
+.bounce-in {
+  animation: bounce-in 2s ease infinite;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.boton.swall {
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
+  transition: all 0.3s ease;
+}
+
+.boton.copy {
+  background-color: var(--color-copy-button);
+  border-color: var(--color-copy-button);
+}
+
+

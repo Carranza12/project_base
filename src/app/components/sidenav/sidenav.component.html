@@ -1,24 +1,44 @@
-<aside
-  class="h-full"
-  [class.w-16]="(sidebarService.$collapsed | async)"
-  [class.w-64]="!(sidebarService.$collapsed | async)"
->
-  <div
-    class="flex h-full flex-col space-y-4 divide-y divide-gray-200 overflow-y-auto bg-white py-4 px-3 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800"
-    [class.rounded]="rounded"
-    [ngClass]="extraClass"
-  >
-  @for (item of formsMenu; track $index) {
-    <a
-      class="group flex cursor-pointer items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700"
-      [routerLink]="[item.link]"
-      routerLinkActive="bg-gray-200 dark:bg-gray-700"
-    >
-      <span class="flex-shrink-0">{{item.title}}</span>
-      <span class="flex-1 whitespace-nowrap" *ngIf="!(sidebarService.$collapsed | async)">
-        <ng-content></ng-content>
-      </span>
-    </a>
-}
+<div class="sidebar">
+  <div class="logo-details">
+    <i class="bx bxl-c-plus-plus icon"></i>
+    <div class="logo_name">Hola Admin</div>
+    <i class="bx bx-menu" id="btn"></i>
   </div>
-</aside>
+  <ul class="nav-list">
+    <li class="disabled">
+      <i class="bx bx-search"></i>
+      <input type="text" placeholder="Buscar..." />
+      <span class="tooltip">Buscar</span>
+    </li>
+    <li class="">
+      <a routerLink="/forms">
+        <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Formularios</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+   <!--  <li>
+      <a routerLink="/">
+        <i class="bx bx-party"></i>
+        <span class="links_name">Invitaciones</span>
+      </a>
+      <span class="tooltip">Invitaciones</span>
+    </li>   -->
+   
+  
+    <li class="disabled">
+      <a>
+        <i class="bx bx-user"></i>
+        <span class="links_name">Mi perfil</span>
+      </a>
+      <span class="tooltip">Mi perfil</span>
+    </li>
+   
+    <li class="profile">
+      <div class="profile-details">
+        <!--<img src="profile.jpg" alt="profileImg">-->
+      </div>
+      <i (click)="singOut()" class="bx bx-log-out" id="log_out"><span>salir</span></i>
+    </li>
+  </ul>
+</div>
